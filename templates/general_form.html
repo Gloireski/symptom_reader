@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Symptom reader Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href=”https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css” rel=”stylesheet” integrity=”sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU” crossorigin=”anonymous”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <div class="title">User Symptom Form</div>
+    <form action="#">
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Last Name</span>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Weight</span>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Height</span>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+            <p class="instruction">Hold down the Ctrl (or Command on Mac) key while clicking to select multiple options.</p>
+            <div class="input-box">
+                <span class="symptoms-items">Symptoms</span>
+                <select name="symptoms" multiple required>
+                    <option value="fatigue">Fatigue</option>
+                    <option value="headache">Headache</option>
+                    <option value="shortness-of-breath">Shortness of breath</option>
+                    <option value="chest-pain">Chest pain</option>
+                    <option value="abdominal-pain">Abdominal pain</option>
+                    <option value="joint-pain">Joint pain</option>
+                    <option value="cough">Cough</option>
+                    <option value="dizziness">Dizziness</option>
+                    <option value="blurred-vision">Blurred vision</option>
+                    <option value="swelling">Swelling</option>
+                    <option value="nausea">Nausea</option>
+                    <option value="fever">Fever</option>
+                    <option value="weight-loss">Unexplained weight loss</option>
+                    <option value="rash">Rash</option>
+                    <option value="sneezing">Sneezing</option>
+                    <option value="itchy-eyes">Itchy, watery eyes</option>
+                    <option value="hair-loss">Hair loss</option>
+                    <option value="seizures">Seizures</option>
+                    <option value="hives">Hives</option>
+                    <option value="muscle-weakness">Muscle weakness</option>
+                    <option value="pale-skin">Pale skin</option>
+                    <option value="confusion">Confusion</option>
+                    <option value="night-sweats">Night sweats</option>
+                </select>
+            </div>
+            <p class="instruction">Hold down the Ctrl (or Command on Mac) key while clicking to select multiple options.</p>
+        </div>
+        <div class="button">
+            <input type="submit" value="Diagnose">
+        </div>
+    </form>
+</div>
+<script src=
+"https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+        crossorigin="anonymous">
+</script>
+<script src=”https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js”
+        integrity=”sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ”
+        crossorigin=”anonymous”>
+</script>
+</body>
+</html>
