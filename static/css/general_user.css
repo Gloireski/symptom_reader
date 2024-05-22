@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open',sans-serif;
+}
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    background: black;
+}
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.input-box .symptoms-items {
+    display: block;
+    margin-top: 10px;
+}
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 15px;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+}
+.user-details .input-box{
+    height: inherit;
+    margin-bottom: 10px;
+}
+.button{
+   display: flex;
+   justify-content: flex-end;
+   width: 100%;
+}
+.button input[type="submit"]{
+    background-color: burlywood;
+    color: beige;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.input-box select[name="symptoms"]{
+    width: 63%;
+}
+.instruction{
+    font-size: x-small;
+}
