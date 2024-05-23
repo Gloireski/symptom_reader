@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-
+       scale=1">
+    <title>Home page</title>
+    <link href="{{ url_for('static',
+       filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}"
+       rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="text-center text-capitalize te">
+            Symptom reader
+        </h1>
+        <div class="login-container">
+            <div class="login-form-1">
+                <h3>Sign In</h3>
+                <form>
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg" placeholder="Your Email *" value="" required/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Your Password *" value="" required/>
+                        </div>
+{#                        <div class="input-group mb-3">#}
+{#                            <input type="submit" class="btnSubmit" value="Login" />#}
+{#                        </div>#}
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                            <button class="btn btn-secondary" type="button">Register</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+{#        <div class="input-group input-group-sm mb-3">#}
+{#            <span class="input-group-text" id="inputGroup-sizing-default">Default</span>#}
+{#            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">#}
+{#        </div>#}
+    </div>
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/
+       2.0.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/
+       bootstrap.min.js') }}"></script>
+</body>
+</html>
