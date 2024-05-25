@@ -1,8 +1,8 @@
 .container_cust {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-container{
@@ -13,6 +13,24 @@
 
     margin-top: 5%;
     margin-bottom: 5%;
+}
+.register-container{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    /*margin-top: 5%;*/
+    /*margin-bottom: 5%;*/
+}
+.register-form {
+    width: 80%;
+    padding: 5%;
+    margin: 2%;
+    border-width: 2px;
+    border-color: #6c757d;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-1{
     /*height: 100%;*/
