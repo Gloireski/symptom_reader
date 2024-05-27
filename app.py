@@ -9,7 +9,7 @@ app.register_blueprint(symptom_reader_blueprint)
 
 
 # config SQLite
-# still gonna write code, we need to decide if we creating a database or using an api
+
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -19,15 +19,25 @@ def home():
 def register():
     return render_template("register.html")
 
-@app.route('/form')
+@app.route('/form', methods=['GET'])
 def form():
     return render_template("user_form.html")
 
 
-@app.route('/general_form')
+@app.route('/form', methods=['GET'])
 def general_form():
     return render_template("general_form.html")
 
+
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    # Extract form data
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    weight = request.form['weight']
+    height = request.form['height']
+    medical_history = request.form.getlist('medical_history')
+    symptoms = request.form.getlist('symptoms')
 
 @app.route('/sidebar')
 def sidebar():
