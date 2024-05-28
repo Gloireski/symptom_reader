@@ -10,7 +10,11 @@ app.register_blueprint(symptom_reader_blueprint)
 
 # config SQLite
 
-@app.route('/')
+app.route('/')
+def landing_page():
+    return render_template("landng_page.html")
+
+app.route('/')
 def home():
     return render_template("index.html")
 
