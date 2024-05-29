@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, Blueprint
+from flask import render_template, request, redirect, url_for, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 
 from Config import Config
@@ -24,7 +24,6 @@ symptom_reader_blueprint = Blueprint('s_reader', __name__)
 app.register_blueprint(symptom_reader_blueprint)
 
 
-# config SQLite
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -62,8 +61,25 @@ def submit_form():
     last_name = request.form['last_name']
     weight = request.form['weight']
     height = request.form['height']
-    medical_history = request.form.getlist('medical_history')
-    symptoms = request.form.getlist('symptoms')
+    medical_history = ','.join(request.form.getlist('medical-history'))
+    symptoms = ','.join(request.form.getlist('symptoms'))
+
+    #add submited form input into the database
+    new_user = User(first_name=first_name, last_name=last_name, weight=weight, height=height,
+            medical_history=medical_history, symptoms=symptoms)
+    
+    #adds user to the session and commits changes
+    db.session.add(new_user)
+    db.session.commit()
+    
+    #when success redirect to results page
+    return redirect(url_for('results', user_id=new_user.id))
+
+
+@app.route('/results/<int:user_id>')
+def results(user_id):
+    user_name, results = get_user_data(user_id)
+    return render_template('sidebar.html', user_name=user_name, results=results)
 
 
 @app.route('/sidebar')
