@@ -2,7 +2,23 @@ from flask import Flask
 from flask import render_template, request, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+from Config import Config
+
+db = SQLAlchemy()
+
+
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    db.init_app(app)
+    return app
+
+
+app = create_app()
+app.app_context().push()
+
+with app.app_context():
+    db.create_all()
 
 symptom_reader_blueprint = Blueprint('s_reader', __name__)
 app.register_blueprint(symptom_reader_blueprint)
@@ -18,6 +34,7 @@ def home():
 @app.route('/register')
 def register():
     return render_template("register.html")
+
 
 @app.route('/form', methods=['GET'])
 def form():
@@ -38,6 +55,7 @@ def submit_form():
     height = request.form['height']
     medical_history = request.form.getlist('medical_history')
     symptoms = request.form.getlist('symptoms')
+
 
 @app.route('/sidebar')
 def sidebar():
