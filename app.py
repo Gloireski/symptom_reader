@@ -4,17 +4,17 @@ from flask_sqlalchemy import SQLAlchemy
 
 from Config import Config
 
-db = SQLAlchemy()
-
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    db.init_app(app)
+    # db.init_app(app)
     return app
 
 
 app = create_app()
+db = SQLAlchemy(app)
+# db.init_app(app)
 app.app_context().push()
 
 with app.app_context():
@@ -25,14 +25,19 @@ app.register_blueprint(symptom_reader_blueprint)
 
 
 # config SQLite
-
-app.route('/')
-def landing_page():
-    return render_template("landng_page.html")
-
-app.route('/')
+@app.route('/')
 def home():
     return render_template("index.html")
+
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+
+@app.route('/landing')
+def landing_page():
+    return render_template("landng_page.html")
 
 
 @app.route('/register')
