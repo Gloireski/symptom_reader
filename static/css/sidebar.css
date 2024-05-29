@@ -127,3 +127,43 @@ header .image-text .header-text{
 .sidebar li a:hover .text{
     color: var(--sidebar-color);
 }
+
+/* Main content style */
+main.content{
+    margin-right: 250px;
+    padding: 20px;
+    width: 20px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+.sidebar.close ~ main.content{
+    margin-left: 88px;
+    width: calc(100% - 88px);
+}
+
+main.content h1{
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+main.content #results{
+    background: var(--sidebar-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+main.content #results ul{
+    list-style: none;
+    padding: 0;
+}
+main.content #results ul li{
+    padding: 10px;
+    background: var(--primary-color-light);
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: var(--text-color);
+}
+main.content #results ul li:not(:last-child){
+    margin-bottom: 10px;
+}

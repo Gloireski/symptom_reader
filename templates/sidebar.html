@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="sidebarstyle.css">
+    <link rel="stylesheet" href="../static/css/sidebarstyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -54,5 +54,22 @@
             </div>
         </div>
     </nav>
-    <script src="sidebarscript.js"></script>
+
+
+    <main class="content">
+        <h1>Hello {{ first_name }}, your Diagnosis is:</h1>
+        <div id="results">
+            {% if results %}
+                <ul>
+                    {% for disease in results %}
+                        <li>{{ disease }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p>Sorry our database could not determine your illness please contact your medical service provider for a diagnosis</p>
+            {% endif %}
+        </div>
+    </main>
+    <script src="../static/js/sidebarscript.js"></script>
 </body>
+</html>
