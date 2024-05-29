@@ -13,7 +13,7 @@ class User(db.Model):
     created_at = db.Column(db.DateTime(), nullable=False, server_default=db.func.now())
     updated_at = db.Column(db.DateTime(), nullable=False, server_default=db.func.now(), onupdate=db.func.now())
 
-    histories = db.relationship('HealthHistory', backref='user')
+    histories = db.relationship('HealthHistory', backref='user', lazy='dynamic')
 
     # def __init__(self):
     #     self.id = str(uuid.uuid4())

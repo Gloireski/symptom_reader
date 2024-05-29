@@ -10,5 +10,7 @@ class HealthHistory(db.Model):
     date = db.Column(db.DateTime(), nullable=False, server_default=db.func.now())
     user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))
 
-    def __init__(self):
-        self.id = str(uuid.uuid4())
+    # def __init__(self):
+    #     self.id = str(uuid.uuid4())
+    def __repr__(self):
+        return "<History '{}'>".format(self.date+" "+self.diagnosis)

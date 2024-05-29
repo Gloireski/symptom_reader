@@ -8,5 +8,7 @@ class Feedback(db.Model):
     comment = db.Column(db.Text)
     created_at = db.Column(db.DateTime(), nullable=False, server_default=db.func.now())
 
-    def __init__(self):
-        self.id = str(uuid.uuid4())
+    # def __init__(self):
+    #     self.id = str(uuid.uuid4())
+    def __repr__(self):
+        return "<Feed '{}'>".format(self.comment)

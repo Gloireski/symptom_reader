@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/PycharmProjects/smilecook/.idea/smilecook.iml" filepath="$USER_HOME$/PycharmProjects/smilecook/.idea/smilecook.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/symptom_reader.iml" filepath="$PROJECT_DIR$/.idea/symptom_reader.iml" />
     </modules>
   </component>

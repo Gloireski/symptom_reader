@@ -1,19 +1,30 @@
+import os
+
 from flask import Flask
 from flask import render_template, request, Blueprint
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import InputRequired, Length
 
-from Config import Config
+
+# from config import Config
 
 
 def create_app():
-    app = Flask(__name__)
-    app.config.from_object(Config)
+    app_ = Flask(__name__)
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    app_.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(basedir, 'database.db')
+    # app_.config.from_object(Config)
     # db.init_app(app)
-    return app
+    return app_
 
 
 app = create_app()
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+# manager = Manager(app)
 # db.init_app(app)
 app.app_context().push()
 
@@ -24,13 +35,22 @@ symptom_reader_blueprint = Blueprint('s_reader', __name__)
 app.register_blueprint(symptom_reader_blueprint)
 
 
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[InputRequired('Username required!'),
+                                                   Length(min=5, max=25,
+                                                          message='Username must be in 5 to 25 characters')])
+    password = PasswordField('Password', validators=[InputRequired('Password required')])
+    submit = SubmitField('Submit')
+
 # config SQLite
+
+
 @app.route('/')
 def home():
     return render_template("index.html")
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template("login.html")
 
