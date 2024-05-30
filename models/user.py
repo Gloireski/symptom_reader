@@ -1,5 +1,5 @@
-from app import db
-from models.healthhistory import HealthHistory
+from ..extensions import bcrypt, db
+from ..models.healthhistory import HealthHistory
 import uuid
 
 
@@ -20,3 +20,9 @@ class User(db.Model):
 
     def __repr__(self):
         return "<User '{}'>".format(self.username)
+
+    def set_password(self, password):
+        self.password = bcrypt.generate_password_hash(password)
+
+    def check_password(self, password):
+        return bcrypt.check_password_hash(self.password, password)

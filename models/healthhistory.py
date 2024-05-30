@@ -1,6 +1,6 @@
 import uuid
 
-from app import db
+from ..extensions import db
 
 
 class HealthHistory(db.Model):

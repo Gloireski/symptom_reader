@@ -1,5 +1,7 @@
-from app import db
+# from app import db
 import uuid
+
+from ..extensions import db
 
 
 class Feedback(db.Model):
