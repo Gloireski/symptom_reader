@@ -17,9 +17,9 @@
             <h3 class="text-center">Register</h3>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
-                    <div class="notification is-danger">
-                        {{ messages[0] }}. Go to <a href="{{ url_for('login') }}">login page</a>.
-                    </div>
+                    <div class="alert alert-danger text-center" role="alert">
+                             {{ messages[0] }}. Go to <a href="{{ url_for('login') }}">login page</a>.
+                        </div>
                 {% endif %}
             {% endwith %}
             <form method="POST" action="/register" enctype="multipart/form-data">
