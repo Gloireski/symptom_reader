@@ -158,8 +158,17 @@ def submit_form():
     last_name = request.form['last_name']
     weight = request.form['weight']
     height = request.form['height']
-    medical_history = request.form.getlist('medical_history')
-    symptoms = request.form.getlist('symptoms')
+    medical_history = ','.join(request.form.getlist('medical_history'))
+    symptoms = ','.join(request.form.getlist('symptoms'))
+
+#when success redirect to results page
+    return redirect(url_for('diagnosis', results='#'))
+
+
+@app.route('/diagnosis/<int:#>')
+def results(user_id):
+    user_name, results = get_user_data(user_id)
+    return render_template('sidebar.html', user_name=user_name, results=results)
 
 
 @app.route('/sidebar')
