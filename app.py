@@ -1,7 +1,9 @@
 import os
+from datetime import timedelta
 
 from flask import Flask, flash, redirect, url_for
 from flask import render_template, request, Blueprint
+from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
@@ -19,8 +21,20 @@ bcrypt = Bcrypt()
 def create_app():
     app_ = Flask(__name__)
     basedir = os.path.abspath(os.path.dirname(__file__))
+    # sqlite db path, point to current project folder path
     app_.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(basedir, 'database.db')
     app_.config["SECRET_KEY"] = 'cc0f7589be8f11e1082328d160892d8a'
+    # help logout user after 15 minutes
+    app_.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=15)
+    login_manager = LoginManager()
+    login_manager.login_view = 'login'
+    login_manager.init_app(app_)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        # since the user_id is just the primary key of our user table, use it in the query for the user
+        return User.query.get(int(user_id))
+
     # app_.config.from_object(Config)
     db.init_app(app_)
     bcrypt.init_app(app_)
@@ -81,6 +95,7 @@ class LoginForm(FlaskForm):
 
 @app.route('/')
 @app.route('/home')
+# @login_required
 def home():
     return render_template("index.html")
 
@@ -101,7 +116,7 @@ def login_post():
     # login code goes here
     username = request.form.get('username')
     password = request.form.get('password')
-    # remember = True if request.form.get('remember') else False
+    remember = True if request.form.get('remember') else False
 
     user = User.query.filter_by(username=username).first()
     print(user)
@@ -109,12 +124,20 @@ def login_post():
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         return redirect(url_for('login'))
+    login_user(user, remember=remember)
     return redirect(url_for('home'))
 
 
 @app.route('/landing')
 def landing_page():
     return render_template("landng_page.html")
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 
 @app.route('/register')
@@ -161,14 +184,14 @@ def submit_form():
     medical_history = ','.join(request.form.getlist('medical_history'))
     symptoms = ','.join(request.form.getlist('symptoms'))
 
-#when success redirect to results page
-    return redirect(url_for('diagnosis', results='#'))
+    # when success redirect to results page
+    return redirect(url_for('diagnosis', results=""))
 
 
-@app.route('/diagnosis/<int:#>')
-def results(user_id):
-    user_name, results = get_user_data(user_id)
-    return render_template('sidebar.html', user_name=user_name, results=results)
+@app.route('/diagnosis')
+def results():
+    # user_name, results = get_user_data(user_id)
+    return render_template('sidebar.html', user_name="user_name", results="results")
 
 
 @app.route('/sidebar')

@@ -9,7 +9,9 @@
        rel="stylesheet">
 </head>
 <body>
-<h1 class="h1 text-center">Home Page</h1>
-
+    <h1 class="h1 text-center">Home Page</h1>
+{% if current_user.is_authenticated %}
+    <p class="text-center">Welcome {{ current_user.username }}</p>
+{% endif %}
 </body>
 </html>
