@@ -1,19 +1,4 @@
 {% extends "sidebar.html" %}
 {% block content %}
-    {% if current_user.is_authenticated %}
-        <h1>Hello {{ current_user.username }}, your Diagnosis is:</h1>
-    {% else %}
-        <h1>Hello {{ first_name }}, your Diagnosis is:</h1>
-    {% endif %}
-    <div id="results">
-        {% if results %}
-            <ul>
-                {% for disease in results %}
-                    <li>{{ disease }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-        <p>Sorry our database could not determine your illness please contact your medical service provider for a diagnosis</p>
-        {% endif %}
-    </div>
+
 {% endblock %}
