@@ -1,0 +1,56 @@
+{% extends "sidebar.html" %}
+{% block content %}
+    <form action="/submit-form" method="POST">
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" name="first_name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Last Name</span>
+                <input type="text" name="last_name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Weight</span>
+                <input type="text" name="weight" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Height</span>
+                <input type="text" name="height" placeholder="Enter your name" required>
+            </div>
+            <p class="instruction">Hold down the Ctrl (or Command on Mac) key while clicking to select multiple options.</p>
+            <div class="input-box">
+                <span class="symptoms-items">Symptoms</span>
+                <select name="symptoms" multiple required>
+                    <option value="fatigue">Fatigue</option>
+                    <option value="headache">Headache</option>
+                    <option value="shortness-of-breath">Shortness of breath</option>
+                    <option value="chest-pain">Chest pain</option>
+                    <option value="abdominal-pain">Abdominal pain</option>
+                    <option value="joint-pain">Joint pain</option>
+                    <option value="cough">Cough</option>
+                    <option value="dizziness">Dizziness</option>
+                    <option value="blurred-vision">Blurred vision</option>
+                    <option value="swelling">Swelling</option>
+                    <option value="nausea">Nausea</option>
+                    <option value="fever">Fever</option>
+                    <option value="weight-loss">Unexplained weight loss</option>
+                    <option value="rash">Rash</option>
+                    <option value="sneezing">Sneezing</option>
+                    <option value="itchy-eyes">Itchy, watery eyes</option>
+                    <option value="hair-loss">Hair loss</option>
+                    <option value="seizures">Seizures</option>
+                    <option value="hives">Hives</option>
+                    <option value="muscle-weakness">Muscle weakness</option>
+                    <option value="pale-skin">Pale skin</option>
+                    <option value="confusion">Confusion</option>
+                    <option value="night-sweats">Night sweats</option>
+                </select>
+            </div>
+            <p class="instruction">Hold down the Ctrl (or Command on Mac) key while clicking to select multiple options.</p>
+        </div>
+        <div class="button">
+            <input type="submit" value="Diagnose">
+        </div>
+    </form>
+{% endblock %}

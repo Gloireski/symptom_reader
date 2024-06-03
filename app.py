@@ -172,6 +172,7 @@ def form():
 @app.route('/form', methods=['GET'])
 def general_form():
     return render_template("general_form.html")
+    # return render_template("form-block.html")
 
 
 @app.route('/submit_form', methods=['POST'])
@@ -194,9 +195,9 @@ def results():
     return render_template('sidebar.html', user_name="user_name", results="results")
 
 
-@app.route('/sidebar')
+@app.route('/results')
 def sidebar():
-    return render_template("sidebar.html")
+    return render_template("results.html")
 
 
 if __name__ == '__main__':
