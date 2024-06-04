@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700;&display=swap');
+
+:root {
+    --primary:#0d6efd;
+    --dark: #212522;
+    --body: #888;
+    --box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+    width: 40px;
+}
+
+body {
+    font-family: Sora, "sans-serif";
+    line-height: 1.5;
+    color: var(--body);
+}
+
+h1,h2,h3,h4,h5,h6,
+.display-4 {
+    color:var(--dark)
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.navbar .nav-link {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn {
+    padding: 14px 18px;
+    border-width: 5px;
+    border-radius: 0;
+}
+
+.wordss {
+    background-image: url(me1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 2;
+}
+
+.wordss ::after {
+    content:"";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 30, 65, 0.2);
+    z-index: -1;
+}
+
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;  
+}
+
+.card-effect {
+    box-shadow: var(--box-shadow);
+    background-color: #fff;
+    padding: 25px;
+    transition: all 0.35s ease;
+}
+
+.card-effect:hover {
+    box-shadow: none;
+    transform: translateY(5px) ;
+}
+
+.iconbox {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 32px;
+    border-radius: 100px;
+}
+
+.form-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 512px;
+    height: 420px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.form-box ::after {
+    content:"";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: -1;
+}
+
+.register-container{
+    padding: 3px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: .5s ease-in-out;
+}
+
+.top span{
+    /* color: #fff; */
+    margin-left: 5px;
+    padding: 10px 0;
+
+}
+
+
+.form-box {
+    padding: 5px 2px;;
+    /* background-image: url(me2.jpg); */
+    border: 2px solid rgb(39, 4, 236) ;
+    border-radius: 15px;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 2;
+}
+
+.input-field{
+    font-size: 15px;
+    background-color: rgba(40, 35, 112, 0.603);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+}
