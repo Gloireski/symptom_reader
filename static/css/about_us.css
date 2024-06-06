@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: aliceblue;
+}
+.about-1{
+    margin: 30px;
+    padding: 5px;
+}
+.about-1 h1{
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: burlywood;
+}
+.about-1 p{
+    text-align: center;
+    padding: 3px;
+    color: black;
+}
+.about-item{
+    margin-bottom: 20px;
+    background-color: gray;
+    padding: 80px 30px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, .6);
+}
+#about-2 .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-top: 50px;
+}
+#about-2 .container .card{
+    width: 100%;
+    background-color: lightcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    flex-direction: column;
+}
+#about-2 .container .card:hover{
+    background-color: aliceblue;
+    transition: 0.3s;
+}
+#about-2 .container .card .card-items{
+    width: 100%;
+    text-align: center;
+}
+#about-2 .container .card .card-items h3{
+    font-size: 27px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    letter-spacing: 1.5px;
+    color: burlywood;
+}
+#about-2 .container .card .card-items p{
+    font-size: 15px;
+    margin: 16px, 0px;
+    line-height: 1.5;
+}
+@media screen and (max-width: 900px){
+    #about-2 .container{
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media screen and (max-width: 768px){
+    #about-2 .container{
+        grid-template-columns:1fr; 
+    }
+}
