@@ -6,8 +6,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="{{ url_for('static', filename='css/sidebar.css') }}"
        rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/user_form.css') }}"
-       rel="stylesheet">
 {#    <link rel="stylesheet" href="../static/css/sidebarstyle.css">#}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -70,8 +68,6 @@
             </div>
         </div>
     </nav>
-
-
     <main class="content">
         {% if current_user.is_authenticated %}
             <h1>Hello {{ current_user.username }}, your Diagnosis is:</h1>
@@ -80,32 +76,29 @@
         {% endif %}
         <div id="results">
             {% if results %}
-                <ul>
-                    {% for disease in results %}
-                        <li>{{ disease }}</li>
-                    {% endfor %}
-		    {% if disease in recommendations %}
-                        <div class="recommendations">
+                <br/>
+                <h3>{{ results }}</h3>
+                <br/>
+                {% if recommendation %}
+                    <div class="recommendations">
                             <h2>Home Remedies:</h2>
                             <ul>
-                                {% for remedy in recommendations[disease]['home_remedies'] %}
+                                {% for remedy in recommendation['home_remedies'] %}
                                     <li><a href="{{ remedy }}" target="_blank">{{ remedy }}</a></li>
                                 {% endfor %}
                             </ul>
                             <h2>OTC Medications:</h2>
                             <ul>
-                                {% for medication in recommendations[disease]['otc_medications'] %}
+                                {% for medication in recommendation['otc_medications'] %}
                                     <li><a href="{{ medication }}" target="_blank">{{ medication }}</a></li>
                                 {% endfor %}
                             </ul>
-                        </div>
-                        {% else %}
-                        <p>Sorry, no recommendations were found for your diagnosis. Please visit a medical professional for further assistance.</p>
-			{% endif %}
-                    {% endfor %}
-                </ul>
+                    </div>
+                {% else %}
+                    <p>Sorry, no recommendations were found for your diagnosis. Please visit a medical professional for further assistance.</p>
+                {% endif %}
             {% else %}
-            <p>Sorry our database could not determine your illness please contact your medical service provider for a diagnosis</p>
+                <p>Sorry our database could not determine your illness please contact your medical service provider for a diagnosis</p>
             {% endif %}
         </div>
 {#    {% block content %}#}

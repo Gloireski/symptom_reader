@@ -11,9 +11,10 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length
 from flask_bcrypt import Bcrypt, check_password_hash
 
-from .model import predict_disease
+from .model_f import predict_disease
 from .extensions import db
 from .models.user import User
+from .recommendations import recommendations
 
 # from config import Config
 bcrypt = Bcrypt()
@@ -165,6 +166,20 @@ def register_post():
     return redirect(url_for('login'))
 
 
+@app.route('/diagnosis/<result>/<first_name>', methods=['GET', 'POST'])
+def diagnosis(result, first_name):
+    # user_name, results = get_user_data(user_id)
+    # print(results)
+    # recommendations_for_result = {recommendations[result] for recommendation in recommendations if
+    #                               recommendation == result}
+    recommendations_for_result = ""
+    value = recommendations[result]
+    if value:
+        recommendations_for_result = value
+    return render_template('sidebar.html', first_name=first_name, results=result,
+                           recommendation=recommendations_for_result)
+
+
 @app.route('/form', methods=['GET'])
 def form():
     return render_template("user_form.html")
@@ -185,14 +200,11 @@ def submit_form():
     height = request.form['height']
     medical_history = ','.join(request.form.getlist('medical_history'))
     symptoms = ','.join(request.form.getlist('symptoms'))
+    print(symptoms)
+    result = predict_disease(symptoms)
+    print(result)
     # when success redirect to results page
-    return redirect(url_for('diagnosis', results=""))
-
-
-@app.route('/diagnosis')
-def results():
-    # user_name, results = get_user_data(user_id)
-    return render_template('sidebar.html', user_name="user_name", results="results")
+    return redirect(url_for('diagnosis', result=result, first_name=first_name))
 
 
 @app.route('/results')
@@ -201,5 +213,4 @@ def sidebar():
 
 
 if __name__ == '__main__':
-    print(predict_disease("Itching,Skin Rash,Nodal Skin Eruptions"))
     app.run(host='0.0.0.0', port=5000)

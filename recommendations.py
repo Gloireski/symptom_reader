@@ -1,4 +1,4 @@
-#recommendations for some disease predictions
+# recommendations for some disease predictions
 
 recommendations = {
     'Arthritis': {
