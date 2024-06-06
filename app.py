@@ -11,6 +11,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length
 from flask_bcrypt import Bcrypt, check_password_hash
 
+from .model import predict_disease
 from .extensions import db
 from .models.user import User
 
@@ -97,7 +98,7 @@ class LoginForm(FlaskForm):
 @app.route('/home')
 # @login_required
 def home():
-    return render_template("index.html")
+    return render_template("Home_page.html")
 
 
 @app.route('/login')
@@ -184,7 +185,6 @@ def submit_form():
     height = request.form['height']
     medical_history = ','.join(request.form.getlist('medical_history'))
     symptoms = ','.join(request.form.getlist('symptoms'))
-
     # when success redirect to results page
     return redirect(url_for('diagnosis', results=""))
 
@@ -201,4 +201,5 @@ def sidebar():
 
 
 if __name__ == '__main__':
+    print(predict_disease("Itching,Skin Rash,Nodal Skin Eruptions"))
     app.run(host='0.0.0.0', port=5000)
