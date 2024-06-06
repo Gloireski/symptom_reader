@@ -84,6 +84,25 @@
                     {% for disease in results %}
                         <li>{{ disease }}</li>
                     {% endfor %}
+		    {% if disease in recommendations %}
+                        <div class="recommendations">
+                            <h2>Home Remedies:</h2>
+                            <ul>
+                                {% for remedy in recommendations[disease]['home_remedies'] %}
+                                    <li><a href="{{ remedy }}" target="_blank">{{ remedy }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            <h2>OTC Medications:</h2>
+                            <ul>
+                                {% for medication in recommendations[disease]['otc_medications'] %}
+                                    <li><a href="{{ medication }}" target="_blank">{{ medication }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% else %}
+                        <p>Sorry, no recommendations were found for your diagnosis. Please visit a medical professional for further assistance.</p>
+			{% endif %}
+                    {% endfor %}
                 </ul>
             {% else %}
             <p>Sorry our database could not determine your illness please contact your medical service provider for a diagnosis</p>
