@@ -14,7 +14,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="#" alt="logo">
+                    <img src="{{ url_for('static', filename='symptomm.png') }}" alt="logo">
                 </span>
 
                 <div class="text header-text">
@@ -29,20 +29,20 @@
             <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-links">
-                        <a href="#">
+                        <a href="{{ url_for("home") }}">
                             <i class='bx bx-home icon'></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
                     <li class="nav-links">
-                        <a href="#">
+                        <a href="{{ url_for("form") }}">
                             <i class='bx bx-file icon' ></i>
                             <span class="text nav-text">Create New Form</span>
                         </a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-links">
-                        <a href="#">
+                        <a href="{{ url_for("symptom_tracking") }}">
                             <i class='bx bx-history icon'></i>
                             <span class="text nav-text">Symptom Tracking</span>
                         </a>

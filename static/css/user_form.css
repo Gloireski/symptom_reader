@@ -13,12 +13,13 @@ body {
     align-items: center;
     background: black;
 }
-.container {
+.form_container {
     max-width: 700px;
     width: 100%;
     background-color: white;
     padding: 25px 30px;
     border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .input-box .medical-history {
     display: block;
@@ -48,12 +49,15 @@ body {
    width: 100%; 
 }
 .button input[type="submit"]{
-    background-color: burlywood;
-    color: beige;
+    background-color: #c09f75;
+    color: #ecece2;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.button input[type="submit"]:hover{
+    background-color: #bba384;
 }
 .input-box select[name="symptoms"]{
     width: 63%;

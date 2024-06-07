@@ -14,6 +14,7 @@ from flask_bcrypt import Bcrypt, check_password_hash
 from .model_f import predict_disease
 from .extensions import db
 from .models.user import User
+from .models.healthhistory import HealthHistory
 from .recommendations import recommendations
 
 # from config import Config
@@ -72,7 +73,7 @@ class LoginForm(FlaskForm):
         if not check_validate:
             return False
 
-        # Does our the exist
+        # Does our user exist
         user = User.query.filter_by(
             username=self.username.data
         ).first()
@@ -107,6 +108,11 @@ def login():
     return render_template("login.html")
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 @app.route('/login', methods=['POST'])
 def login_post():
     # form = LoginForm()
@@ -121,8 +127,7 @@ def login_post():
     remember = True if request.form.get('remember') else False
 
     user = User.query.filter_by(username=username).first()
-    print(user)
-
+    # print(user)
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         return redirect(url_for('login'))
@@ -142,6 +147,14 @@ def logout():
     return redirect(url_for('login'))
 
 
+@app.route('/symptom_tracking')
+@login_required
+def symptom_tracking():
+    history = HealthHistory.query.filter_by(user_id=current_user.id).all()
+    print(history)
+    return render_template("symp_tracking.html", history=history)
+
+
 @app.route('/register')
 def register():
     return render_template("register.html")
@@ -158,7 +171,7 @@ def register_post():
         flash('Username already exists')
         return redirect(url_for('register'))
     new_user = User(username=username, firstName=firstname, lastName=lastname)
-    print(new_user)
+    # print(new_user)
     new_user.set_password(password)
     # add the new user to the database
     db.session.add(new_user)
@@ -173,7 +186,7 @@ def diagnosis(result, first_name):
     # recommendations_for_result = {recommendations[result] for recommendation in recommendations if
     #                               recommendation == result}
     recommendations_for_result = ""
-    value = recommendations[result]
+    value = recommendations.get(result)
     if value:
         recommendations_for_result = value
     return render_template('sidebar.html', first_name=first_name, results=result,
@@ -185,12 +198,6 @@ def form():
     return render_template("user_form.html")
 
 
-@app.route('/form', methods=['GET'])
-def general_form():
-    return render_template("general_form.html")
-    # return render_template("form-block.html")
-
-
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     # Extract form data
@@ -200,16 +207,20 @@ def submit_form():
     height = request.form['height']
     medical_history = ','.join(request.form.getlist('medical_history'))
     symptoms = ','.join(request.form.getlist('symptoms'))
-    print(symptoms)
+    # print(symptoms)
     result = predict_disease(symptoms)
-    print(result)
+    if current_user.is_authenticated:
+        hist = HealthHistory(diagnosis=result, symptoms=symptoms, user_id=current_user.id)
+        db.session.add(hist)
+        db.session.commit()
+    # print(result)
     # when success redirect to results page
     return redirect(url_for('diagnosis', result=result, first_name=first_name))
 
 
 @app.route('/results')
 def sidebar():
-    return render_template("results.html")
+    return render_template("sidebar.html")
 
 
 if __name__ == '__main__':

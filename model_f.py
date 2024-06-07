@@ -77,13 +77,14 @@ def predict_disease(in_symptoms):
 
     # making final prediction by taking mode of all predictions
     final_prediction = mode([rf_prediction, nb_prediction, svm_prediction])
-    return final_prediction
     # r = mode(['Fungal infection', 'nb_prediction', 'nb_prediction'])
     # print(r)
-    # predictions = {
-    #     "rf_model_prediction": rf_prediction,
-    #     "naive_bayes_prediction": nb_prediction,
-    #     "svm_model_prediction": svm_prediction,
-    #     "final_prediction": final_prediction
-    # }
+    predictions = {
+        "rf_model_prediction": rf_prediction,
+        "naive_bayes_prediction": nb_prediction,
+        "svm_model_prediction": svm_prediction,
+        "final_prediction": final_prediction
+    }
+    # print(predictions)
+    return final_prediction
     # return predictions

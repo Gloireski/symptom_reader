@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symptom tracking</title>
+    <link href="{{ url_for('static',
+       filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <h3 class="text-center">Symptom tracking</h3>
+{#<p>{{ history }}</p>#}
+{#    {% for item in history %}#}
+{#    <ul>#}
+{#        <li>{{ item.date }}</li>#}
+{#        <li>{{ item.symptoms }}</li>#}
+{#        <li>{{ item.diagnosis }}</li>#}
+{#    </ul>#}
+{#    {% endfor %}#}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Datetime</th>
+          <th scope="col">Diagnosis</th>
+          <th scope="col">Symptoms</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in history %}
+        <tr>
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.date }}</td>
+          <td>{{ item.diagnosis }}</td>
+          <td>{{ item.symptoms }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for("home") }}" class="btn btn-primary">Home</a>
+</div>
+</body>
+</html>
