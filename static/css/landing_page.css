@@ -14,7 +14,7 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background: url(logo/me2.jpg) repeat;
+    background: url("../logo/me2.jpg") repeat;
     background-size: cover;
     background-position: center;
 }
@@ -26,7 +26,7 @@ header{
     top: 0;
     width: 100%;
     padding: 30px 100px;
-    display: flex ;
+    display: flex ;i
     justify-content: space-between;
     align-items:center;
 }
