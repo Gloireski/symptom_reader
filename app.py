@@ -149,7 +149,7 @@ def about_us():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 @app.route('/symptom_tracking')
@@ -193,6 +193,12 @@ def feedback():
     return render_template('feedback.html')
 
 
+@app.route('/feedback', methods=['POST'])
+def feedback_post():
+    comment = request.form.get('comment')
+    return redirect(url_for('home'))
+
+
 @app.route('/diagnosis/<result>/<first_name>', methods=['GET', 'POST'])
 def diagnosis(result, first_name):
     # user_name, results = get_user_data(user_id)
@@ -200,7 +206,9 @@ def diagnosis(result, first_name):
     # recommendations_for_result = {recommendations[result] for recommendation in recommendations if
     #                               recommendation == result}
     recommendations_for_result = ""
-    value = recommendations.get(result)
+    # print(result)
+    value = recommendations.get(result.strip())
+    # print(value)
     if value:
         recommendations_for_result = value
     return render_template('sidebar.html', first_name=first_name, results=result,
@@ -219,7 +227,7 @@ def submit_form():
     last_name = request.form['last_name']
     weight = request.form['weight']
     height = request.form['height']
-    medical_history = ','.join(request.form.getlist('medical_history'))
+    # BMI calculation or api call
     symptoms = ','.join(request.form.getlist('symptoms'))
     # print(symptoms)
     result = predict_disease(symptoms)

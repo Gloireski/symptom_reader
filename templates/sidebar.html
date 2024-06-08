@@ -14,7 +14,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="{{ url_for('static', filename='symptomm.png') }}" alt="logo">
+                    <img src="{{ url_for('static', filename='logo/symtpomm.png') }}" alt="logo">
                 </span>
 
                 <div class="text header-text">
@@ -104,7 +104,7 @@
 {#    {% block content %}#}
 {#    {% endblock %}#}
     </main>
-    <script src="../static/js/sidebarscript.js"></script>
+    <script src="{{ url_for('static', filename='js/sidebarscript.js') }}"></script>
     <script src=
     "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
             integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
