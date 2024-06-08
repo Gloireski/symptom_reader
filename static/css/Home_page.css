@@ -40,7 +40,7 @@ a {
 }
 
 .wordss {
-    background-image: url(me1.jpg);
+    background-image: url('../logo/me1.jpg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -147,4 +147,4 @@ section {
     padding: 0 10px 0 45px;
     border: none;
     border-radius: 30px;
-}
+
