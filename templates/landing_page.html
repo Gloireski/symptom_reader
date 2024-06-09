@@ -11,8 +11,8 @@
        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="../static/css/landing_page.css">
-    <title>SymptomReader</title>
+    <link href= "{{ url_for('static', filename='css/landing_page.css') }}"
+    <title>landing_page</title>
 
 </head>
 
@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#"></a>
-                <img  class="logo" src="../static/logo/symtpomm.png" alt="">
+	    <img class="logo" src="{{ url_for('static', filename='logo/symtpomm.png') }}" alt="">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,10 +29,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+<<<<<<< HEAD
+			    <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+=======
                         <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+>>>>>>> c1d0cb3e1b26af1ba2e2362d5d30743ea2651a55
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="about_us.html"> About Us</a>
+			    <a class="nav-link active" href="{{ url_for('about_us') }}"> About Us</a>
                     </li>
                     <li class="nav-item"> 
                         <a class="nav-link active" href="#">Feature Section</a>
@@ -49,7 +53,7 @@
                     <p class="text-white  ">Good health is one of life's greatest assets, yet it's often taken for granted until it starts to falter.
                         The truth is maintaining your well-being should be a top priority every single day.
                         Your health impacts every aspect of your life, from your energy levels and productivity to your overall happiness and longevity.</p>
-                        <a href="#" class="btn btn-primary">Check your Symptoms</a>
+		    <a href="{{ url_for('form') }}" class="btn btn-primary">Check your Symptoms</a>
                     </div>
             </div>
         </div>

@@ -15,6 +15,7 @@ from .model_f import predict_disease
 from .extensions import db
 from .models.user import User
 from .models.healthhistory import HealthHistory
+from .models.feedback import Feedback
 from .recommendations import recommendations
 
 # from config import Config
@@ -200,6 +201,9 @@ def feedback():
 @app.route('/feedback', methods=['POST'])
 def feedback_post():
     comment = request.form.get('comment')
+    new_feedb = Feedback(comment=comment)
+    db.session.add(new_feedb)
+    db.session.commit()
     return redirect(url_for('home'))
 
 

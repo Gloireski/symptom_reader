@@ -5,10 +5,10 @@ flask-WTF==1.2.1
 wtforms==3.1.2
 flask-bcrypt==1.0.1
 flask-login==0.6.3
-numpy~=1.26.4
-pandas~=2.2.2
-matplotlib~=3.9.0
-seaborn~=0.13.2
-scikit-learn~=1.5.0
-alembic~=1.13.1
-SQLAlchemy~=2.0.30
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.9.0
+seaborn==0.13.2
+scikit-learn==1.5.0
+alembic==1.13.1
+SQLAlchemy==2.0.30
