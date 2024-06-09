@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 from sklearn.metrics import accuracy_score, confusion_matrix
 
-DATA_PATH = "Training.csv"
+DATA_PATH = "../Training.csv"
 data = pd.read_csv(DATA_PATH).dropna(axis=1)
 
 # # Encoding the target value into numerical
@@ -34,7 +34,7 @@ final_nb_model.fit(X.values, y)
 final_rf_model.fit(X.values, y)
 
 # Reading the test data
-test_data = pd.read_csv("Testing.csv").dropna(axis=1)
+test_data = pd.read_csv("../Testing.csv").dropna(axis=1)
 
 test_X = test_data.iloc[:, :-1]
 test_Y = encoder.transform(test_data.iloc[:, -1])
