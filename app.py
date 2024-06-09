@@ -10,12 +10,12 @@ from wtforms import StringField, PasswordField
 from wtforms.validators import InputRequired, Length
 from flask_bcrypt import Bcrypt, check_password_hash
 
-from .model_f import predict_disease
-from .extensions import db
-from .models.user import User
-from .models.healthhistory import HealthHistory
-from .models.feedback import Feedback
-from .recommendations import recommendations
+from model_f import predict_disease
+from extensions import db
+from models.user import User
+from models.healthhistory import HealthHistory
+from models.feedback import Feedback
+from recommendations import recommendations
 
 # from config import Config
 bcrypt = Bcrypt()

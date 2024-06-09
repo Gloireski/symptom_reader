@@ -1,7 +1,7 @@
 from flask_login import UserMixin
 
-from ..extensions import bcrypt, db
-from ..models.healthhistory import HealthHistory
+from extensions import bcrypt, db
+from models.healthhistory import HealthHistory
 import uuid
 
 
