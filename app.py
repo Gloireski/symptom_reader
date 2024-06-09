@@ -15,6 +15,7 @@ from .model_f import predict_disease
 from .extensions import db
 from .models.user import User
 from .models.healthhistory import HealthHistory
+from .models.feedback import Feedback
 from .recommendations import recommendations
 
 # from config import Config
@@ -100,7 +101,7 @@ class LoginForm(FlaskForm):
 @app.route('/home')
 # @login_required
 def home():
-    return render_template("Home_page.html")
+    return render_template("home.html")
 
 
 @app.route('/login')
@@ -140,11 +141,16 @@ def landing_page():
     return render_template("landng_page.html")
 
 
+@app.route('/about_us')
+def about_us():
+    return render_template("about_us.html")
+
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 @app.route('/symptom_tracking')
@@ -164,11 +170,15 @@ def register():
 def register_post():
     username = request.form.get('username')
     password = request.form.get('password')
+    password_confirmation = request.form.get('password_confirmation')
     firstname = request.form.get('firstname')
     lastname = request.form.get('lastname')
     user = User.query.filter_by(username=username).first()
     if user:
         flash('Username already exists')
+        return redirect(url_for('register'))
+    if password != password_confirmation:
+        flash('Password and password are not the same')
         return redirect(url_for('register'))
     new_user = User(username=username, firstName=firstname, lastName=lastname)
     # print(new_user)
@@ -179,6 +189,20 @@ def register_post():
     return redirect(url_for('login'))
 
 
+@app.route('/feedback')
+def feedback():
+    return render_template('feedback.html')
+
+
+@app.route('/feedback', methods=['POST'])
+def feedback_post():
+    comment = request.form.get('comment')
+    new_feedb = Feedback(comment=comment)
+    db.session.add(new_feedb)
+    db.session.commit()
+    return redirect(url_for('home'))
+
+
 @app.route('/diagnosis/<result>/<first_name>', methods=['GET', 'POST'])
 def diagnosis(result, first_name):
     # user_name, results = get_user_data(user_id)
@@ -186,7 +210,9 @@ def diagnosis(result, first_name):
     # recommendations_for_result = {recommendations[result] for recommendation in recommendations if
     #                               recommendation == result}
     recommendations_for_result = ""
-    value = recommendations.get(result)
+    # print(result)
+    value = recommendations.get(result.strip())
+    # print(value)
     if value:
         recommendations_for_result = value
     return render_template('sidebar.html', first_name=first_name, results=result,
@@ -205,7 +231,7 @@ def submit_form():
     last_name = request.form['last_name']
     weight = request.form['weight']
     height = request.form['height']
-    medical_history = ','.join(request.form.getlist('medical_history'))
+    # BMI calculation or api call
     symptoms = ','.join(request.form.getlist('symptoms'))
     # print(symptoms)
     result = predict_disease(symptoms)
