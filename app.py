@@ -23,7 +23,7 @@ bcrypt = Bcrypt()
 
 
 def create_app():
-    app_ = Flask(__name__)
+    app_ = Flask(__name__, static_folder='static')
     basedir = os.path.abspath(os.path.dirname(__file__))
     # sqlite db path, point to current project folder path
     app_.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(basedir, 'database.db')
@@ -139,6 +139,10 @@ def login_post():
 @app.route('/landing')
 def landing_page():
     return render_template("landng_page.html")
+
+@app.route('/about')
+def about():
+    return render_template("about_us.html")
 
 
 @app.route('/about_us')
