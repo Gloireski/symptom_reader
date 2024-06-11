@@ -1,8 +1,8 @@
 # symptom_reader
 
-# **Introduction 1**
+# **Introduction**
 
-## **The Project 2** 
+## **The Project** 
 
 In today's digital world, we often rely on the internet to explain our symptoms
 and provide insights into potential health issues. Symptom_Reader aims to bridge this gap 
@@ -17,13 +17,13 @@ need for accessible and reliable health information, Symptom_reader seamlessly i
 holistic and medical treatment options. Beyond identifying illnesses, Symptom_reader 
 empowers users with the knowledge to effectively manage and treat their symptoms. This is the core purpose of Symptom_Reader.
 
-## **The Context 2**
+## **The Context**
 
 This project serves as our Portfolio Project, marking the conclusion of our Foundations Year at Holberton School.
 We had the freedom to select our teammates and choose the focus of our work, provided we deliver a 
 functioning program by the end of the three-week development period.
 
-## **The Team 2**  
+## **The Team**  
 
 We are three software Engineers who are passionate about coding and our diverse careers and cultures
 from three different African countries.
@@ -39,7 +39,7 @@ from three different African countries.
 
 follow us on Twitter for more.
 
-## **Blog Posts 2**
+## **Blog Posts**
 
 After the development phase, we each wrote a blog post to reflect on the development journey of Symptom_Reader
 
@@ -47,7 +47,7 @@ After the development phase, we each wrote a blog post to reflect on the develop
 - Belem's article [Title](url)
 - Abdullateef's article [Title](url)
 
-## **Tutorial 2**
+## **Tutorial**
 
 [Symtom_Reader](https://gloire-belem.tech/)
 
@@ -59,9 +59,9 @@ Here is a simple flow for the user experience on Symptom_Reader
 
 ![Create a simple flow diagram](image-url)
 
-# **Architectre 1**
+# **Architectre**
 
-## **Overview 2**
+## **Overview**
 
 Our web application predominantly employs HTML, CSS, and JavaScript for frontend development. 
 We prioritized simplicity and user-friendliness, focusing on crafting intuitive interfaces without heavy reliance on frameworks. 
@@ -71,9 +71,9 @@ Our approach emphasizes a balanced blend of technology to ensure a seamless and 
 
 ![Create a simple flow diagram](image-url)
 
-## **Final model training 2**
+## **Final model training**
 
 We used training and testing datasets from kaggle, after doing some earlier training on 80% of the data and make sure our models worked well using confusion matrix plots we started final training on the whole dataset. To achieve an accurate and  robust model we combined three machine learning algorithms: Support Vector Classifier, Gaussian Naive Bayes Classifier and Random Forest Classifier. We used label encoder to convert the prognosis column to numerical variable which is more suitable for model training. We finally put the column in dictionary for make sure we have the right name in the inputs.
 
-## **Reading input data and predict 2** 
+## **Reading input data and predict**
 finally we’ve created a function predict_disease that take as parameter a string of metrics separated by a comma, theses metrics name present will be convert to 1 and the final prediction is done accordingly by combining our three algorithms
