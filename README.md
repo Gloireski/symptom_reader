@@ -31,7 +31,7 @@ from three different African countries.
 - Amanda Mabunda is a South African citizen graduated from Biotechnology, a software engineer
   and founder of Symptom_Reader [@Amatas_aura](https://x.com/Amatas_aura)
 
-- Belem Gloire BEKOUTOU is a Moroccan citizen, an IT systems engineering graduate with strong
+- Belem Gloire BEKOUTOU is a Chadian citizen living in Morocco, an IT systems engineering graduate with strong
   software implementation process experience and Co-Founder of Symptom_Reader [@GloireBelem](https://x.com/GloireBelem)
 
 - Ado Abdullateef is a Nigerian citizen, #adul please add your infomation and also fix it on the about us page, you didnt update it
