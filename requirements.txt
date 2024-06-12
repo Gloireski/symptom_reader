@@ -1,8 +1,6 @@
 Flask==3.0.3
 Flask-SQLAlchemy==3.1.1
 Flask-Migrate==4.0.7
-flask-WTF==1.2.1
-wtforms==3.1.2
 flask-bcrypt==1.0.1
 flask-login==0.6.3
 numpy==1.26.4

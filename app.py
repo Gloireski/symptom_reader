@@ -5,20 +5,14 @@ from flask import Flask, flash, redirect, url_for
 from flask import render_template, request, Blueprint
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from flask_migrate import Migrate
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import InputRequired, Length
 from flask_bcrypt import Bcrypt, check_password_hash
 
 from .model_f import predict_disease
-from .extensions import db
+from .extensions import db, bcrypt
 from .models.user import User
 from .models.healthhistory import HealthHistory
 from .models.feedback import Feedback
 from .recommendations import recommendations
-
-# from config import Config
-bcrypt = Bcrypt()
 
 
 def create_app():
@@ -58,39 +52,39 @@ symptom_reader_blueprint = Blueprint('s_reader', __name__)
 app.register_blueprint(symptom_reader_blueprint)
 
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired('Username required!'),
-                                                   Length(min=5, max=25,
-                                                          message='Username must be in 5 to 25 characters')])
-    password = PasswordField('Password', validators=[InputRequired('Password required')])
-
-    # submit = SubmitField('Submit')
-
-    def validate(self):
-        check_validate = super(LoginForm, self).validate()
-
-        # if our validators do not pass
-        if not check_validate:
-            return False
-
-        # Does our user exist
-        user = User.query.filter_by(
-            username=self.username.data
-        ).first()
-        if not user:
-            self.username.errors.append(
-                'Invalid username or password'
-            )
-            return False
-
-        # Do the passwords match
-        if not self.user.check_password(self.password.data):
-            self.username.errors.append(
-                'Invalid username or password'
-            )
-            return False
-
-        return True
+# class LoginForm(FlaskForm):
+#     username = StringField('Username', validators=[InputRequired('Username required!'),
+#                                                    Length(min=5, max=25,
+#                                                           message='Username must be in 5 to 25 characters')])
+#     password = PasswordField('Password', validators=[InputRequired('Password required')])
+#
+#     # submit = SubmitField('Submit')
+#
+#     def validate(self):
+#         check_validate = super(LoginForm, self).validate()
+#
+#         # if our validators do not pass
+#         if not check_validate:
+#             return False
+#
+#         # Does our user exist
+#         user = User.query.filter_by(
+#             username=self.username.data
+#         ).first()
+#         if not user:
+#             self.username.errors.append(
+#                 'Invalid username or password'
+#             )
+#             return False
+#
+#         # Do the passwords match
+#         if not self.user.check_password(self.password.data):
+#             self.username.errors.append(
+#                 'Invalid username or password'
+#             )
+#             return False
+#
+#         return True
 
 
 # config SQLite
@@ -115,13 +109,6 @@ def page_not_found(e):
 
 @app.route('/login', methods=['POST'])
 def login_post():
-    # form = LoginForm()
-    # if form.validate_on_submit():
-    #     flash("You have been logged in.", category="success")
-    #
-    #     username = form.name.data
-    #     password = form.password.data
-    # login code goes here
     username = request.form.get('username')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
@@ -133,15 +120,6 @@ def login_post():
         return redirect(url_for('login'))
     login_user(user, remember=remember)
     return redirect(url_for('home'))
-
-
-@app.route('/landing')
-def landing_page():
-    return render_template("landng_page.html")
-
-@app.route('/about')
-def about():
-    return render_template("about_us.html")
 
 
 @app.route('/about_us')
@@ -206,7 +184,7 @@ def feedback_post():
     return redirect(url_for('home'))
 
 
-@app.route('/diagnosis/<result>/<first_name>', methods=['GET', 'POST'])
+@app.route('/diagnosis/<result>/<first_name>', methods=['GET'])
 def diagnosis(result, first_name):
     # user_name, results = get_user_data(user_id)
     # print(results)
@@ -232,8 +210,8 @@ def submit_form():
     # Extract form data
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    weight = request.form['weight']
-    height = request.form['height']
+    # weight = request.form['weight']
+    # height = request.form['height']
     # BMI calculation or api call
     symptoms = ','.join(request.form.getlist('symptoms'))
     # print(symptoms)
@@ -244,7 +222,7 @@ def submit_form():
         db.session.commit()
     # print(result)
     # when success redirect to results page
-    return redirect(url_for('diagnosis', result=result, first_name=first_name))
+    return redirect(url_for('diagnosis', result=result, first_name=first_name, last_name=last_name))
 
 
 @app.route('/results')
