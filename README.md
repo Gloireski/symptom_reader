@@ -1,5 +1,8 @@
 # symptom_reader
 
+Landing page for Symptom_Reader
+![landing page](https://imgur.com/QB5CCpH)
+
 # **Introduction**
 
 ## **The Project** 
@@ -43,7 +46,7 @@ follow us on Twitter for more.
 
 After the development phase, we each wrote a blog post to reflect on the development journey of Symptom_Reader
 
-- Amanda's article [Title](url)
+- Amanda's article [Title](https://www.linkedin.com/pulse/symptomreader-amanda-mabunda-tzyvf)
 - Belem's article [Title](url)
 - Abdullateef's article [Title](url)
 
@@ -53,11 +56,11 @@ After the development phase, we each wrote a blog post to reflect on the develop
 
 Here is a preview of our main feature, resukts page with users diagnosis and recommandations
 
-![Results page](image-url)
+![Results page](https://imgur.com/G7urp5y)
 
 Here is a simple flow for the user experience on Symptom_Reader
 
-![Create a simple flow diagram](image-url)
+![Create a simple flow diagram](https://imgur.com/i0DztJe)
 
 # **Architectre**
 
