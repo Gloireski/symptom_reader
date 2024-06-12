@@ -130,14 +130,11 @@ header .image-text .header-text{
 
 /* Main content style */
 .content{
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    margin-left: 250px;
-    /*margin-left: ;*/
+    /*position: absolute;*/
+    margin-right: 250px;
     padding: 20px;
-    /*width: 20px;*/
-    width: calc(2em * 5px);
+    width: 20px;
+    width: calc(100% - 250px);
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
