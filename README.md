@@ -49,7 +49,7 @@ After the development phase, we each wrote a blog post to reflect on the develop
 
 ## **Tutorial**
 
-[Symtom_Reader](https://gloire-belem.tech/)
+[Symtom_Reader](http://gloire-belem.tech/)
 
 Here is a preview of our main feature, resukts page with users diagnosis and recommandations
 
