@@ -1,7 +1,7 @@
 # symptom_reader
 
 Landing page for Symptom_Reader
-![landing page](https://imgur.com/QB5CCpH)
+[landing page](https://imgur.com/QB5CCpH)
 
 # **Introduction**
 
