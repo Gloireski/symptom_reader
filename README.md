@@ -10,17 +10,17 @@ by offering reliable diagnoses and holistic treatment options, including OTC med
 While no web application can replace a professional medical diagnosis, Symptom_Reader assists users 
 in understanding their symptoms and determining preliminary actions before consulting a doctor.
 
-ymptom_reader is a cutting-edge web application designed to deliver accurate medical 
+symptom_reader is a cutting-edge web application designed to deliver accurate medical 
 diagnoses based on user-reported symptoms. It offers comprehensive home remedies and 
 over-the-counter medication recommendations for various medical conditions. Inspired by the 
 need for accessible and reliable health information, Symptom_reader seamlessly integrates 
 holistic and medical treatment options. Beyond identifying illnesses, Symptom_reader 
-empowers users with the knowledge to effectively manage and treat their symptoms. This is the core purpose of Symptom_Reader.
+empowers users with the knowledge to effectively manage and treat their symptoms. This is the core purpose of Symptom_Reader. Take your Health seriously.
 
 ## **The Context**
 
 This project serves as our Portfolio Project, marking the conclusion of our Foundations Year at Holberton School.
-We had the freedom to select our teammates and choose the focus of our work, provided we deliver a 
+We had the freedom to select our teammates and choose the focus of our work, provided we delivered a 
 functioning program by the end of the three-week development period.
 
 ## **The Team**  
@@ -28,11 +28,11 @@ functioning program by the end of the three-week development period.
 We are three software Engineers who are passionate about coding and our diverse careers and cultures
 from three different African countries.
 
-- Amanda Mabunda is a South African citizen graduated from Biotechnology, a software engineer
+- Amanda Mabunda is a South African citizen, graduated from Biotechnology, a software engineer
   and founder of Symptom_Reader [@Amatas_aura](https://x.com/Amatas_aura)
 
 - Belem Gloire BEKOUTOU is a Chadian citizen living in Morocco, an IT systems engineering graduate with strong
-  software implementation process experience and Co-Founder of Symptom_Reader [@GloireBelem](https://x.com/GloireBelem)
+  software implementation process experience and co-Founder of Symptom_Reader [@GloireBelem](https://x.com/GloireBelem)
 
 - Ado Abdullateef is a Nigerian citizen, I am a remote sensing and GIS graduate, geospatial analyst, software engineer,
   and co-founder of Symptom_Reader. [@adoabdullateef](https://x.com/adoabdullateef)
@@ -51,7 +51,7 @@ After the development phase, we each wrote a blog post to reflect on the develop
 
 [Symtom_Reader](http://gloire-belem.tech/)
 
-Here is a preview of our main feature, results page with user's diagnosis and recommendations
+Here is a preview of our main feature, a results page with the user's diagnosis and recommendations
 
 ![Results page](image-url)
 
@@ -59,7 +59,7 @@ Here is a simple flow for the user experience on Symptom_Reader
 
 ![Create a simple flow diagram](image-url)
 
-# **Architectre**
+# **Architecture**
 
 ## **Overview**
 
@@ -76,5 +76,5 @@ Our approach emphasizes a balanced blend of technology to ensure a seamless and 
 We used training and testing datasets from kaggle, after doing some earlier training on 80% of the data and make sure our models worked well using confusion matrix plots we started final training on the whole dataset. To achieve an accurate and  robust model we combined three machine learning algorithms: Support Vector Classifier, Gaussian Naive Bayes Classifier and Random Forest Classifier. We used label encoder to convert the prognosis column to numerical variable which is more suitable for model training. We finally put the column in dictionary for make sure we have the right name in the inputs.
 
 ## **Reading input data and predict**
-finally we’ve created a function predict_disease that take as parameter a string of metrics separated by a comma, theses metrics name present will be convert to 1 and the final prediction is done accordingly by combining our three algorithms
+finally, we’ve created a function predict_disease that takes as a parameter a string of metrics separated by a comma, the metrics name present will be converted to 1 and 0 for the final prediction is done accordingly by combining our three algorithms
 
