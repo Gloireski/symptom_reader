@@ -69,7 +69,7 @@ Bootstrap streamlined tasks such as user authentication. Python Flask handles ba
 Machine learning, based on Kaggle disease prediction datasets, aids in disease prediction. 
 Our approach emphasizes a balanced blend of technology to ensure a seamless and effective user experience.
 
-[Create a simple flow diagram](image-url)
+![Create a simple flow diagram](image-url)
 
 ## **Final model training**
 
