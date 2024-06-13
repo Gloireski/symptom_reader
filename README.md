@@ -45,7 +45,7 @@ After the development phase, we each wrote a blog post to reflect on the develop
 
 - Amanda's article [Article](https://www.linkedin.com/pulse/symptomreader-amanda-mabunda-tzyvf)
 - Belem's article [My alx portfolio blog](https://medium.com/@belemgloire/my-alx-portfolio-project-910482233e53)
-- Abdullateef's article [Title](url)
+- Abdullateef's article [My first Alx Project](https://medium.com/@lateefolatunbosun12/symptomreader-my-alx-project-48be304b1282)
 
 ## **Tutorial**
 
