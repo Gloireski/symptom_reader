@@ -43,7 +43,7 @@ follow us on Twitter for more.
 
 After the development phase, we each wrote a blog post to reflect on the development journey of Symptom_Reader
 
-- Amanda's article [Title](url)
+- Amanda's article [Article](https://www.linkedin.com/pulse/symptomreader-amanda-mabunda-tzyvf)
 - Belem's article [My alx portfolio blog](https://medium.com/@belemgloire/my-alx-portfolio-project-910482233e53)
 - Abdullateef's article [Title](url)
 
