@@ -34,8 +34,8 @@ from three different African countries.
 - Belem Gloire BEKOUTOU is a Chadian citizen living in Morocco, an IT systems engineering graduate with strong
   software implementation process experience and Co-Founder of Symptom_Reader [@GloireBelem](https://x.com/GloireBelem)
 
-- Ado Abdullateef is a Nigerian citizen, #adul please add your infomation and also fix it on the about us page, you didnt update it
-  and co-Founder of Symptom_Reader [@adoabdullateef](https://x.com/adoabdullatee)
+- Ado Abdullateef is a Nigerian citizen, I am a remote sensing and GIS graduate, geospatial analyst, software engineer,
+  and co-founder of Symptom_Reader. [@adoabdullateef](https://x.com/adoabdullateef)
 
 follow us on Twitter for more.
 
@@ -51,7 +51,7 @@ After the development phase, we each wrote a blog post to reflect on the develop
 
 [Symtom_Reader](http://gloire-belem.tech/)
 
-Here is a preview of our main feature, resukts page with users diagnosis and recommandations
+Here is a preview of our main feature, results page with user's diagnosis and recommendations
 
 ![Results page](image-url)
 
@@ -63,7 +63,7 @@ Here is a simple flow for the user experience on Symptom_Reader
 
 ## **Overview**
 
-Our web application predominantly employs HTML, CSS, and JavaScript for frontend development. 
+Our web application predominantly employs HTML, CSS, and JavaScript for front-end development. 
 We prioritized simplicity and user-friendliness, focusing on crafting intuitive interfaces without heavy reliance on frameworks. 
 Bootstrap streamlined tasks such as user authentication. Python Flask handles backend operations, including routing and data processing. 
 Machine learning, based on Kaggle disease prediction datasets, aids in disease prediction. 
