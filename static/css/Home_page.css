@@ -39,7 +39,7 @@ a {
     border-radius: 0;
 }
 
-.wordss {
+.Herocontent {
     background-image: url('../logo/me1.jpg');
     background-position: center;
     background-size: cover;
@@ -48,7 +48,7 @@ a {
     z-index: 2;
 }
 
-.wordss ::after {
+.Herocontent ::after {
     content:"";
     width: 100%;
     height: 100%;
